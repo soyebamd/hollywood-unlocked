@@ -35,6 +35,12 @@ $slider = new WP_Query( $args );
               <?php
       // Start the loop.
       while ( $slider->have_posts() ) : $slider->the_post();
+      
+      $post = the_ID();
+      
+      $delete_post =  $GLOBALS[$post];
+      
+      echo $post;
 
         /*
          * Include the Post-Format-specific template for the content.
