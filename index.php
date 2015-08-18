@@ -36,11 +36,7 @@ $slider = new WP_Query( $args );
       // Start the loop.
       while ( $slider->have_posts() ) : $slider->the_post();
       
-      $post = the_ID();
-      
-      $delete_post =  $GLOBALS[$post];
-      
-      echo $post;
+     
 
         /*
          * Include the Post-Format-specific template for the content.
@@ -107,6 +103,9 @@ $thumb = new WP_Query( $args );
     ?>
           </div>
         </section>
+
+
+
         <section id="post-container">
           <?php if ( have_posts() ) : ?>
           <?php if ( is_home() && ! is_front_page() ) : ?>
@@ -116,8 +115,27 @@ $thumb = new WP_Query( $args );
             </h1>
           </header>
           <?php endif; ?>
+
+
+           <?php if ( is_home() || is_front_page() ) {
+
+
+           query_posts( 'cat=-4' );
+
+
+
+           } ?>
+
+
+
+
+
           <?php
       // Start the loop.
+
+
+
+
       while ( have_posts() ) : the_post();
 
         /*
